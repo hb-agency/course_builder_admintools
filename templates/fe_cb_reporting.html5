@@ -1,0 +1,19 @@
+<div class="<?php echo strlen($this->class) ? $this->class : 'mod_cb_clientreporting'; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+<?php if ($this->headline && strlen($this->hl)): ?>
+
+<<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
+<?php endif; ?>
+
+<?php if (strlen($this->print_href)): ?>
+<div class="print_button">
+	<a href="<?php echo $this->print_href; ?>" title="<?php echo $this->print_label[1]; ?>"><span><?php echo $this->print_label[0]; ?></span></a>
+</div>
+<?php endif; ?>
+
+<?php if($this->results): ?>
+<div id="tl_cb_reporting_results">
+<?php echo $this->results; ?>
+</div>
+<?php endif; ?>
+
+</div>

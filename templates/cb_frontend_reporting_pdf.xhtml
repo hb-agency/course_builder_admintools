@@ -1,0 +1,26 @@
+<table cellpadding="2" cellspacing="0" class="sortable" summary="Table lists records" id="reports" style="border: 1px solid #000000; border-collapse:collapse;">
+  <thead>
+  <tr>
+  <?php if($this->headings): ?>
+  	<?php foreach($this->headings as $i=>$heading): ?>
+    <th class="col_<?php echo $i; ?>" style="border: 1px solid #000000; font-size:50%;"><?php echo $heading; ?></th>
+  	<?php endforeach; ?>
+  <?php endif; ?>
+  </tr>
+  </thead>
+  <tbody>
+  <?php if($this->rows): ?>
+  <?php foreach($this->rows as $i=>$row): ?>
+  <tr>
+  <?php foreach($row['columns'] as $i=>$col): ?>
+    <td class="col_<?php echo $i; ?> <?php echo $col['class']; ?>" style="border: 1px solid #000000; font-size:50%;"><?php echo $col['html']; ?></td>
+  <?php endforeach; ?>
+  </tr>
+  <?php endforeach; ?>
+  <?php else: ?>
+  <tr>
+  	<td class="col_0" style="padding-left: 2px; border: 1px solid #000000; font-size:50%;"><?php echo $this->noResults; ?></td>
+  </tr>
+  <?php endif; ?>
+</tbody>
+</table>

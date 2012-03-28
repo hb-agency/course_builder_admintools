@@ -1,0 +1,26 @@
+<table cellpadding="0" cellspacing="0" summary="Table lists records" id="client_reports">
+  <thead>
+  <tr>
+  <?php if($this->headings): ?>
+  	<?php foreach($this->headings as $i=>$heading): ?>
+    <th class="col_<?php echo $i; ?>"><?php echo $heading; ?></th>
+  	<?php endforeach; ?>
+  <?php endif; ?>
+  </tr>
+  </thead>
+  <tbody>
+  <?php if($this->rows): ?>
+  <?php foreach($this->rows as $i=>$row): ?>
+  <tr>
+  <?php foreach($row['columns'] as $i=>$col): ?>
+    <td class="col_<?php echo $i; ?> <?php echo $col['class']; ?>"><?php echo $col['html']; ?></td>
+  <?php endforeach; ?>
+  </tr>
+  <?php endforeach; ?>
+  <?php else: ?>
+  <tr>
+  	<td class="col_0" style="padding-left: 2px; "><?php echo $this->noResults; ?></td>
+  </tr>
+  <?php endif; ?>
+</tbody>
+</table>

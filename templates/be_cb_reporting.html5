@@ -1,0 +1,58 @@
+<form action="<?php echo $this->request; ?>" id="tl_filter" class="tl_form" method="post">
+<div class="tl_formbody">
+<input type="hidden" name="FORM_SUBMIT" value="tl_filters" />
+<input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}" />
+
+<div class="tl_panel">
+
+<div class="tl_submit_panel tl_subpanel">
+<input type="image" name="filter" id="filter" src="system/themes/<?php echo $this->getTheme(); ?>/images/reload.gif" class="tl_img_submit" title="<?php echo $this->apply; ?>" value="<?php echo $this->apply; ?>" />
+</div>
+
+<div class="tl_search tl_subpanel">
+<strong><?php echo $this->search; ?>:</strong>
+  <select name="tl_field" class="tl_select<?php echo $this->searchClass; ?>"><?php echo $this->searchOptions; ?></select>
+  <span>=</span>
+  <input type="text" name="tl_value" class="tl_text<?php echo $this->searchClass; ?>" value="<?php echo $this->keywords; ?>" />
+</div>
+
+<div class="tl_filter tl_subpanel">
+<strong><?php echo $this->datefilter; ?>:</strong>
+  <select name="tstamp_from" id="tstamp_from" class="tl_select<?php echo $this->datefromfilterClass; ?>"><option value=""><?php echo $this->thDate; ?></option><?php echo $this->datefilterOptions; ?></select>
+<strong> - </strong>
+  <select name="tstamp_to" id="tstamp_to" class="tl_select<?php echo $this->datetofilterClass; ?>"><option value=""><?php echo $this->thDate; ?></option><?php echo $this->datefilterOptions; ?></select>
+</div>
+
+<div class="tl_type tl_subpanel">
+<strong><?php echo $this->status; ?>:</strong>
+  <select name="tl_status" id="status" class="tl_select<?php echo $this->statusClass; ?>"><option value=""><?php echo $this->thStatus; ?></option><?php echo $this->statusOptions; ?></select>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+</div>
+</form>
+
+<div id="tl_buttons">
+<a href="contao/main.php?do=tl_cb_reporting&key=print_report" class="print_report" title="<?php echo $this->print_report[1]; ?>" accesskey="c" onclick="Backend.getScrollOffset();"><?php echo $this->print_report[0]; ?></a>
+<div class="tl_buttons_separator">::</div>
+<a href="contao/main.php?do=tl_cb_reporting" class="header_back" title="<?php echo $this->goBack; ?>" accesskey="b" onclick="Backend.getScrollOffset();"><?php echo $this->goBack; ?></a>
+</div>
+<h2 class="sub_headline"><?php echo $this->headline; ?></h2>
+<form id="tl_cb_reporting" action="<?php echo $this->action; ?>" method="post">
+<div class="tl_formbody_edit">
+<input type="hidden" name="FORM_SUBMIT" value="tl_cb_reporting" />
+<div id="tl_cb_reporting_results">
+<?php if($this->results): ?>
+<?php echo $this->results; ?>
+<?php endif; ?>
+</div>
+</div>
+</form>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!-- 
+window.addEvent('domready', function() { new TableSort('reports'); });
+//--><!]]>
+</script>
